@@ -1,0 +1,23 @@
+<%= form_for @photo, url:  album_photos_path do |f| %>
+  Photos:
+  <ul>
+    <%= f.fields_for :photo do |addresses_form| %>
+      <li>
+        <%= addresses_form.label :Name %>
+        <%= addresses_form.text_field :name %>
+ 
+        
+         <%= addresses_form.label :Image %>
+        <%= addresses_form.file_field :avatars, multiple: true %>
+
+          Delete: <%= addresses_form.check_box :_destroy %>
+
+      </li>
+
+      
+    <% end %>
+    <p>
+    <%= f.submit %>
+  	</p>
+  </ul>
+<% end %>
