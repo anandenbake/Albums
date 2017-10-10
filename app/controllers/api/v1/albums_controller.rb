@@ -26,8 +26,11 @@ module Api
 			end
 
 			def update
+				@name = params[:album][:name]
+				@description = params[:album][:description]
+				@user_id = params[:album][:user_id]
 
-				respond_with Album.update(params[:id], params[:album])
+				respond_with Album.update(name: @name, description: @description, user_id: @user_id)
 			end
 
 			def destroy
