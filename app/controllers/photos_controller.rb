@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-
+before_action :authenticate_user!
 	def new
 		@album = Album.find(params[:album_id])
 		@photo = @album.photos.build
